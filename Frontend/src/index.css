@@ -1,0 +1,107 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #f5f7fb;
+  color: #1f2937;
+}
+
+.home{
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero{
+  max-width: 800px;
+  text-align: center;
+}
+
+.tag-line{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.hero h1{
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.description{
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.button{
+  padding: 14px 28px;
+  border:none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 60;
+  cursor: pointer;
+}
+
+
+.upload-page{
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-card{
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0, 0, 0.08);
+}
+
+.upload-card h1{
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.upload-description{
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.file-box{
+  padding: 30px;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.file-box input{
+  margin-bottom: 15px;
+  
+}
+
+.file-box p{
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.analyze-button{
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
