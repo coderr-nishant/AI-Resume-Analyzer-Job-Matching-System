@@ -6,6 +6,7 @@ import { useState } from "react";
 function ResumeUpload(){
     const[resume,setResume]=useState(null);
     const[error,setError]=useState("");
+    const[message,setMessage]=useState("");
 
 async function testBackend() {
     const response=await fetch("http://localhost:5000/api/health");
@@ -17,6 +18,7 @@ async function testBackend() {
         const selectFile=event.target.files[0];
         
         setError("");
+        setMessage("")
 
         if(!selectFile){
             setResume(null);
@@ -24,7 +26,9 @@ async function testBackend() {
         }
         setResume(selectFile);
     }
-    function validateResume(){
+    async function uploadResume(){
+        setError("");
+        setMessage("");
             if(!resume){
                 setError("Please select a resume first.");
                 return;
@@ -48,8 +52,23 @@ async function testBackend() {
                 return;
             }
 
-            setError("");
-            alert("Resume is valid and ready for analysis");
+            const formData=new FormData();
+            formData.append("resume",resume);
+
+            try{
+                const response=await fetch("http://localhost:5000/api/resume/upload",
+                    {
+                        method:"Post",
+                        body: formData
+                    }
+                );
+
+                const data=await response.json();
+                setMessage(data.message);
+            }
+           catch(error){
+                setError("Unable to connect to the backend.");
+           }
         }
     return(
         <main className="upload-page">
@@ -77,7 +96,13 @@ async function testBackend() {
                         {error}
                     </p>
                 )}
-                <button className="analyze-button" onClick={validateResume}>Analyze resume</button>
+
+                {message &&(
+                    <p>
+                        {message}
+                    </p>
+                )}
+                <button className="analyze-button" onClick={uploadResume}>Analyze resume</button>
                 <button className="analyze-button" onClick={testBackend}>Test Backend</button>
             </section>
             
