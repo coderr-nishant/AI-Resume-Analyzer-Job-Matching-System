@@ -6,6 +6,13 @@ import { useState } from "react";
 function ResumeUpload(){
     const[resume,setResume]=useState(null);
     const[error,setError]=useState("");
+
+async function testBackend() {
+    const response=await fetch("http://localhost:5000/api/health");
+    const message=await response.text();
+    alert(message);
+}
+
     function handleFileChange(event){
         const selectFile=event.target.files[0];
         
@@ -71,6 +78,7 @@ function ResumeUpload(){
                     </p>
                 )}
                 <button className="analyze-button" onClick={validateResume}>Analyze resume</button>
+                <button className="analyze-button" onClick={testBackend}>Test Backend</button>
             </section>
             
         </main>
