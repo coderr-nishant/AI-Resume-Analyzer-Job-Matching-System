@@ -3,6 +3,7 @@ const cors = require("cors");
 const multer=require("multer");
 const {PDFParse}=require("pdf-parse");
 const fs=require("fs");
+const {analyzeResume}=require("./services/aiService");
 
 const app = express();
 
@@ -31,14 +32,18 @@ app.post("/api/resume/upload", upload.single("resume"),async(req,res)=>{
 
         const result=await parser.getText();
 
-        console.log("Extracted resume text");
-        console.log(result.text);
+        // console.log("Extracted resume text");
+        // console.log(result.text);
+
+        const aiResult=await analyzeResume(result.text);
+        console.log("AI Analysis:");
+        console.log(aiResult);
 
         await parser.destroy();
 
         res.json({
             message:"Resume uploaded and text extracted successfully",
-            text:result.text
+            analysis: aiResult
         });
     }
     catch(error){
