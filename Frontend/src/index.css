@@ -105,3 +105,133 @@ body{
   font-weight: 600;
   cursor: pointer;
 }
+
+.analysis-page{
+  min-height: 100vh;
+  padding: 50px 20px;
+}
+
+.analysis-container{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.analysis-container h1{
+  font-size: 40px;
+  margin-bottom: 35px;
+}
+
+.analysis-card {
+  background-color: white;
+  padding: 28px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.analysis-card h2 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.analysis-card p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.analysis-card ul {
+  padding-left: 20px;
+}
+
+.analysis-card li {
+  margin-bottom: 8px;
+}
+
+.skills-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-badge{
+  padding: 8px 14px;
+  border-radius: 20px;
+  background-color: #eef2ff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.education-detail{
+  margin-bottom: 20px;
+}
+
+.education-detail h3{
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.education-detail p{
+  margin-bottom: 4px;
+}
+
+.experience-detail{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb ;
+}
+
+.experience-detail:last-child{
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.experience-detail h3{
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.education-company{
+  font-weight: 600;
+}
+
+.education-duration{
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.experience-role {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.experience-item ul {
+  padding-left: 20px;
+}
+
+.experience-item li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.certification-item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.certification-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.certification-item h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.certification-item p {
+  font-weight: 600;
+}

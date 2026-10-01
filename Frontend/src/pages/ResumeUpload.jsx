@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import{useNavigate} from "react-router-dom"
 
 
 
@@ -7,6 +7,8 @@ function ResumeUpload(){
     const[resume,setResume]=useState(null);
     const[error,setError]=useState("");
     const[message,setMessage]=useState("");
+
+    const navigate=useNavigate();
 
 async function testBackend() {
     const response=await fetch("http://localhost:5000/api/health");
@@ -18,8 +20,7 @@ async function testBackend() {
         const selectFile=event.target.files[0];
         
         setError("");
-        setMessage("")
-
+        setMessage("");
         if(!selectFile){
             setResume(null);
             return;
@@ -35,13 +36,11 @@ async function testBackend() {
             }
 
             const allowedTypes = [
-            "application/pdf",
-            "application/msword",
-            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            "application/pdf"
             ];
 
             if(!allowedTypes.includes(resume.type)){
-                setError("Only PDF, DOC, and DOCX files are allowed.");
+                setError("Only PDF is  allowed.");
                 return;
             }
 
@@ -64,7 +63,11 @@ async function testBackend() {
                 );
 
                 const data=await response.json();
-                setMessage(data.message);
+                navigate("/results",{
+                    state:{
+                        analysis:data.analysis
+                    }
+                })
             }
            catch(error){
                 setError("Unable to connect to the backend.");
@@ -82,7 +85,7 @@ async function testBackend() {
 
                 <div className="file-box">
                     <input type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange}/>
-                    <p>Supported formats: PDF, DOC, DOCX</p>
+                    <p>Supported formats: PDF</p>
                     <p>Maximum file size: 5 MB</p>
                 </div>
                 {resume &&(
